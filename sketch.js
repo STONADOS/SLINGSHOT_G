@@ -14,6 +14,7 @@ var box1, box2, box3, box4, box5, box6, box7, box8, box9;
 var boxs1, boxs2, boxs3, boxs4, boxs5, boxs6, boxs7, boxs8, boxs9;
 var platform, platform2;
 var score = 0;
+var replays = 0;
 
 function preload(){
   backgroundimage = loadImage("sprites/back.png")
@@ -30,18 +31,18 @@ function setup(){
 
     slingshot = new SlingShot(pentagon.body, {x:200, y:350})
 
-    box1 = new boxes(330+250, 235);
-    box2 = new boxes(380+250, 235);
+    box1 = new boxes(330+250, 305);
+    box2 = new boxes(380+250, 305);
 
-    box3 = new boxes(430+250, 285);
-    box4 = new boxes(480+250, 235);
-    box5 = new boxes(530+250, 235);
+    box3 = new boxes(430+250, 355);
+    box4 = new boxes(480+250, 305);
+    box5 = new boxes(530+250, 305);
     //
-    box6 = new boxes(380+250, 185);
-    box7 = new boxes(430+250, 235);
-    box8 = new boxes(480+250, 185);
+    box6 = new boxes(380+250, 255);
+    box7 = new boxes(430+250, 305);
+    box8 = new boxes(480+250, 255);
     // 
-    box9 = new boxes(430+250, 185);
+    box9 = new boxes(430+250, 255);
     // 
     boxs1 = new boxes(330+650, 235);
     boxs2 = new boxes(380+650, 235);
@@ -92,6 +93,25 @@ function draw(){
     platform2.display();
     slingshot.display();
 
+
+    // box1 = new boxes(330+250, 235);
+    // box2 = new boxes(380+250, 235);
+
+    // box3 = new boxes(430+250, 285);
+    // box4 = new boxes(480+250, 235);
+    // box5 = new boxes(530+250, 235);
+    // //
+    // box6 = new boxes(380+250, 185);
+    // box7 = new boxes(430+250, 235);
+    // box8 = new boxes(480+250, 185);
+    // // 
+    // box9 = new boxes(430+250, 185);.
+    // console.log(box1.body.position.y)
+  // if(box1.body.position.y == 535){
+  //   box1.disappear();
+  // }
+
+
     textSize(30);
     strokeWeight(2);
     fill("purple")
@@ -101,6 +121,9 @@ function draw(){
 
     fill("blue")
     text("PENTAGONS USED <" + score + ">" , 30, 190)
+    
+    text("REPLAYS <" + replays + ">" , 1100, 190)
+
     
   }
 
@@ -192,5 +215,6 @@ function keyPressed(){
     slingshot.attach(pentagon.body);
     gamestate = "on sling";
 
+    replays += 1; 
   }
 }
