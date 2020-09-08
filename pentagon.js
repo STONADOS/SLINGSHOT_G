@@ -19,12 +19,6 @@ display(){
     image(this.image, 0, 0, this.sides, this.radius);
     pop();
 
-    // if(this.body.position.x >400){
-    //     this.body.position.x = 0;
-    // }
-    // else if (this.body.position.x < 0){
-    //     this.body.position.x = 400;
-    // }
-    console.log(this.body.position.x);
+   
 }
 }
