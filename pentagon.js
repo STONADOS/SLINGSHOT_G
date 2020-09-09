@@ -2,7 +2,7 @@ class player{
     constructor(x, y, s, r){
         var options = {
             restitution:0.9,
-            density:1.2,
+            density:1.2
         }
         this.body = Bodies.polygon(x, y, s, r, options);
         this.sides = s;

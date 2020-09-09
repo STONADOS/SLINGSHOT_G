@@ -12,12 +12,12 @@ class boxes{
         World.add(world, this.body);
     }
 display(){
-    // var pos = this.body.position;
-    //     imageMode(CENTER);
-    //     image(this.image, pos.x, pos.y, this.width, this.height);
-
     var pos = this.body.position;
-    if (this.body.speed > 10){
+    if (this.body.speed < 10){
+        imageMode(CENTER);
+        image(this.image, pos.x, pos.y, this.width, this.height);
+    }
+      else{
         push();
         translate(pos.x, pos.y);
         rotate(this.body.angle)
@@ -26,13 +26,7 @@ display(){
         imageMode(CENTER);
         image(this.image, 0, 0, this.width, this.height);
         pop();
-        
-        World.remove(world, this.body);
-      }
-      else{
-        imageMode(CENTER);
-        image(this.image, pos.x, pos.y, this.width, this.height);
-        
+        World.remove(world, this.body);     
     }
         
     }

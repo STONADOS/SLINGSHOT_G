@@ -94,22 +94,6 @@ function draw(){
     slingshot.display();
 
 
-    // box1 = new boxes(330+250, 235);
-    // box2 = new boxes(380+250, 235);
-
-    // box3 = new boxes(430+250, 285);
-    // box4 = new boxes(480+250, 235);
-    // box5 = new boxes(530+250, 235);
-    // //
-    // box6 = new boxes(380+250, 185);
-    // box7 = new boxes(430+250, 235);
-    // box8 = new boxes(480+250, 185);
-    // // 
-    // box9 = new boxes(430+250, 185);.
-    // console.log(box1.body.position.y)
-  // if(box1.body.position.y == 535){
-  //   box1.disappear();
-  // }
 
 
     textSize(30);
@@ -155,8 +139,6 @@ function keyPressed(){
     World.remove(world, box4.body);
     World.remove(world, box5.body);
     
-    // 
-    // 
     World.remove(world, box6.body);
     World.remove(world, box7.body);
     World.remove(world, box8.body);
@@ -168,36 +150,25 @@ function keyPressed(){
     World.remove(world, boxs3.body);
     World.remove(world, boxs4.body);
     World.remove(world, boxs5.body);
-    
-    // 
-    // 
+
     World.remove(world, boxs6.body);
     World.remove(world, boxs7.body);
     World.remove(world, boxs8.body);
     
     World.remove(world, boxs9.body);
 
-    // Body.setVelocity(box1.body, {x:0, y:5});
-    // Body.setVelocity(box2.body, {x:0, y:5});
-    // Body.setVelocity(box3.body, {x:0, y:5});
-    // Body.setVelocity(box4.body, {x:0, y:5});
-    // Body.setVelocity(box5.body, {x:0, y:5});
-    // Body.setVelocity(box6.body, {x:0, y:5});
-    // Body.setVelocity(box7.body, {x:0, y:5});
-    // Body.setVelocity(box8.body, {x:0, y:5});
-    // Body.setVelocity(box9.body, {x:0, y:5});
-    box1 = new boxes(330+250, 235);
-    box2 = new boxes(380+250, 235);
+    box1 = new boxes(330+250, 305);
+    box2 = new boxes(380+250, 305);
 
-    box3 = new boxes(430+250, 285);
-    box4 = new boxes(480+250, 235);
-    box5 = new boxes(530+250, 235);
+    box3 = new boxes(430+250, 355);
+    box4 = new boxes(480+250, 305);
+    box5 = new boxes(530+250, 305);
     //
-    box6 = new boxes(380+250, 185);
-    box7 = new boxes(430+250, 235);
-    box8 = new boxes(480+250, 185);
+    box6 = new boxes(380+250, 255);
+    box7 = new boxes(430+250, 305);
+    box8 = new boxes(480+250, 255);
     // 
-    box9 = new boxes(430+250, 185);
+    box9 = new boxes(430+250, 255);
     // 
     boxs1 = new boxes(330+650, 235);
     boxs2 = new boxes(380+650, 235);
