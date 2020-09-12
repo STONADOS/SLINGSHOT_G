@@ -9,15 +9,19 @@ var gamestate = "on sling";
 
 var ground;
 var pentagon;
+var backgroundImg;
 var slingshot;
 var box1, box2, box3, box4, box5, box6, box7, box8, box9;
 var boxs1, boxs2, boxs3, boxs4, boxs5, boxs6, boxs7, boxs8, boxs9;
 var platform, platform2;
-var score = 0;
+var used = 0;
 var replays = 0;
+var score = 0;
+
 
 function preload(){
-  backgroundimage = loadImage("sprites/back.png")
+  // backgroundimage = loadImage("sprites/back.png")
+  backs();
 }
 
 function setup(){
@@ -59,13 +63,25 @@ function setup(){
     platform = new Ground(680, 580, 350, 40)
 
     platform2 = new Ground(1080, 380, 325, 40)
-
-    
-
+ 
 }
 
 function draw(){
-    background(backgroundimage);
+  if (backgroundImg){
+    background(backgroundImg);
+  }
+    textSize(30);
+    strokeWeight(2);
+    fill("purple")
+    stroke("orange")
+    text("DRAG THE PENTAGON TO SLING AND PRESS SPACE TO ATTACH IT BACK TO THE SLINGSHOT !!", 0, 80)
+    text("PRESSSS 'R' TO PLAY AGAIN", 500, 120)
+    fill("blue")
+    text("PENTAGONS USED <" + used + ">" , 30, 190)
+    
+    text("REPLAYS <" + replays + ">" , 1100, 190)
+2
+    text("SCORE <" + score + ">" , 600, 190)
     Engine.update(engine);
 
     ground.display();
@@ -93,22 +109,27 @@ function draw(){
     platform2.display();
     slingshot.display();
 
+    box1.score();
 
+    box2.score();
+    box3.score();
+    box4.score();
+    box5.score();
+    box6.score();
+    box7.score();
+    box8.score();
+    box9.score();
 
+    boxs1.score();
 
-    textSize(30);
-    strokeWeight(2);
-    fill("purple")
-    stroke("orange")
-    text("DRAG THE PENTAGON TO SLING AND PRESS SPACE TO ATTACH IT BACK TO THE SLINGSHOT !!", 0, 80)
-    text("PRESSSS 'R' TO PLAY AGAIN", 500, 120)
-
-    fill("blue")
-    text("PENTAGONS USED <" + score + ">" , 30, 190)
-    
-    text("REPLAYS <" + replays + ">" , 1100, 190)
-
-    
+    boxs2.score();
+    boxs3.score();
+    boxs4.score();
+    boxs5.score();
+    boxs6.score();
+    boxs7.score();
+    boxs8.score();
+    boxs9.score();
   }
 
 function mouseDragged(){
@@ -120,7 +141,7 @@ function mouseDragged(){
 function mouseReleased(){
     slingshot.fly();
     if (gamestate == "on sling"){
-      score += 1;
+      used += 1;
     }
     gamestate = "launched";
 }
@@ -187,5 +208,26 @@ function keyPressed(){
     gamestate = "on sling";
 
     replays += 1; 
+    used = 0;
+    score = 0;
+
+    backs();
   }
+}
+
+async function backs(){
+  var time = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+  var timeJSON = await time.json();
+  var datetime = timeJSON.datetime;
+  var hour = datetime.slice(11, 13);
+  if( hour >= 06 && hour <= 15){
+    backgroundimage = "sprites/day.png";
+  }
+  else if (hour >= 15 && hour <= 19) { 
+    backgroundimage = "sprites/evening.png";
+  }
+  else{
+    backgroundimage = "sprites/night.png"
+  }
+    backgroundImg = loadImage(backgroundimage);
 }

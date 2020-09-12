@@ -30,5 +30,10 @@ display(){
     }
         
     }
+score() {
+    if(this.Visiblity > -55 && this.Visiblity < 0){
+        score += 50;
+    }
+}
 }
      
